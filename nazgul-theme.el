@@ -96,9 +96,9 @@
     :magenta   "#dc8cc3"
     :magenta+1 "#ec93d3"))
 
-(deftheme grayscale)
+(deftheme nazgul)
 (nazgul-theme-set-faces
- 'grayscale
+ 'nazgul
  nazgul-theme-colors
 
  '(
@@ -128,7 +128,7 @@
 ;;;; font-lock
    (font-lock-builtin-face                       :foreground fg+1)
    (font-lock-comment-delimiter-face             :foreground fg-1)
-   (font-lock-comment-face                       :foreground fg+1 :weight italic)
+   (font-lock-comment-face                       :foreground fg+1 :slant italic)
    (font-lock-constant-face                      :foreground fg-1)
    (font-lock-doc-face                           :foreground fg-1)
    (font-lock-doc-string-face                    :foreground fg-1)
@@ -327,7 +327,7 @@
       (magenta (plist-get nazgul-theme-colors :magenta))
       (cyan    (plist-get nazgul-theme-colors :cyan)))
   (custom-theme-set-variables
-   'grayscale
+   'nazgul
    `(ansi-color-names-vector
      ;; black, base08, base0B, base0A, base0D, magenta, cyan, white
      [,bg ,red ,green ,yellow ,blue ,magenta ,cyan ,fg])
@@ -342,6 +342,6 @@
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
 
-(provide 'nazgul-theme)
+(provide-theme 'nazgul)
 
 ;;; nazgul-theme.el ends here
