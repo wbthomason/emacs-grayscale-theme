@@ -1,11 +1,11 @@
-;;; grayscale-theme.el --- A simple grayscale theme
+;;; nazgul-theme.el --- A simple grayscale theme
 
-;; Copyright (C) 2017  Kaleb Elwert
+;; Copyright (C) 2018  Wil Thomason
 
-;; Author: Kaleb Elwert <belak@coded.io>
-;; Maintainer: Kaleb Elwert <belak@coded.io>
+;; Author: Wil Thomason <wbthomason@cs.cornell.edu>
+;; Maintainer: Wil Thomason <wbthomason@cs.cornell.edu>
 ;; Version: 0.1
-;; URL: https://github.com/belak/emacs-grayscale-theme
+;; URL: https://github.com/wbthomason/emacs-nazgul-theme
 ;; Keywords: lisp
 
 ;; This file is NOT part of GNU Emacs.
@@ -25,12 +25,12 @@
 
 ;;; Commentary:
 
-;; This theme is a simple grayscale theme which uses the zenburn
-;; colors as highlights.
+;; This theme is a port of the vim-nazgul theme to Emacs. It is based off of grayscale-theme by Kaleb
+;; Elwert. All credit for the theme goes to Kaleb; all credit for bugs goes to me.
 
 ;;; Code:
 
-(defun grayscale-theme-transform-spec (spec colors)
+(defun nazgul-theme-transform-spec (spec colors)
   "Transform a theme `SPEC' into a face spec using `COLORS'."
   (let ((output))
     (while spec
@@ -42,7 +42,7 @@
         ;; Append the transformed element
         (cond
          ((and (memq key '(:box :underline)) (listp value))
-          (setq output (append output (list key (grayscale-theme-transform-spec value colors)))))
+          (setq output (append output (list key (nazgul-theme-transform-spec value colors)))))
          (color
           (setq output (append output (list key color))))
          (t
@@ -54,31 +54,31 @@
     ;; Return the transformed spec
     output))
 
-(defun grayscale-theme-transform-face (spec colors)
+(defun nazgul-theme-transform-face (spec colors)
   "Transform a face `SPEC' into an Emacs theme face definition using `COLORS'."
   (let* ((face             (car spec))
          (definition       (cdr spec)))
 
-    (list face `((t ,(grayscale-theme-transform-spec definition colors))))))
+    (list face `((t ,(nazgul-theme-transform-spec definition colors))))))
 
-(defun grayscale-theme-set-faces (theme-name colors faces)
+(defun nazgul-theme-set-faces (theme-name colors faces)
   "Define the important part of `THEME-NAME' using `COLORS' to map the `FACES' to actual colors."
   (apply 'custom-theme-set-faces theme-name
          (mapcar #'(lambda (face)
-                     (grayscale-theme-transform-face face colors))
+                     (nazgul-theme-transform-face face colors))
                  faces)))
 
-(defvar grayscale-theme-colors
+(defvar nazgul-theme-colors
   ;; The bg and fg colors were originally built as a mix between the
   ;; base16-grayscale and the duotone atom theme colors but have
   ;; been tweaked a bit since then. I've used the duotone idea of
   ;; one main foreground color with muted and brightened
   ;; variants. The highlight colors have been adapted from zenburn.
-  '(:bg        "#2e2e2e"
-    :bg+1      "#383838"
+  '(:bg        "#282828"
+    :bg+1      "#333333"
     :bg+2      "#424242"
     :bg+3      "#474747"
-    :fg-1      "#868686"
+    :fg-1      "#8c8c8c"
     :fg        "#b6b6b6"
     :fg+1      "#e6e6e6"
     :red-1     "#8c5353"
@@ -97,9 +97,9 @@
     :magenta+1 "#ec93d3"))
 
 (deftheme grayscale)
-(grayscale-theme-set-faces
+(nazgul-theme-set-faces
  'grayscale
- grayscale-theme-colors
+ nazgul-theme-colors
 
  '(
 ;;; Built-in
@@ -128,7 +128,7 @@
 ;;;; font-lock
    (font-lock-builtin-face                       :foreground fg+1)
    (font-lock-comment-delimiter-face             :foreground fg-1)
-   (font-lock-comment-face                       :foreground fg-1)
+   (font-lock-comment-face                       :foreground fg+1 :weight italic)
    (font-lock-constant-face                      :foreground fg-1)
    (font-lock-doc-face                           :foreground fg-1)
    (font-lock-doc-string-face                    :foreground fg-1)
@@ -318,14 +318,14 @@
    ))
 
 ;; Anything leftover that doesn't fall neatly into a face goes here.
-(let ((bg      (plist-get grayscale-theme-colors :bg))
-      (fg      (plist-get grayscale-theme-colors :fg))
-      (red     (plist-get grayscale-theme-colors :red))
-      (green   (plist-get grayscale-theme-colors :green))
-      (yellow  (plist-get grayscale-theme-colors :yellow))
-      (blue    (plist-get grayscale-theme-colors :blue))
-      (magenta (plist-get grayscale-theme-colors :magenta))
-      (cyan    (plist-get grayscale-theme-colors :cyan)))
+(let ((bg      (plist-get nazgul-theme-colors :bg))
+      (fg      (plist-get nazgul-theme-colors :fg))
+      (red     (plist-get nazgul-theme-colors :red))
+      (green   (plist-get nazgul-theme-colors :green))
+      (yellow  (plist-get nazgul-theme-colors :yellow))
+      (blue    (plist-get nazgul-theme-colors :blue))
+      (magenta (plist-get nazgul-theme-colors :magenta))
+      (cyan    (plist-get nazgul-theme-colors :cyan)))
   (custom-theme-set-variables
    'grayscale
    `(ansi-color-names-vector
@@ -342,6 +342,6 @@
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
 
-(provide 'grayscale-theme)
+(provide 'nazgul-theme)
 
-;;; grayscale-theme.el ends here
+;;; nazgul-theme.el ends here

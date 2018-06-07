@@ -1,39 +1,27 @@
-# emacs-grayscale-theme
+# emacs-nazgul-theme
 
-[![MELPA](https://melpa.org/packages/grayscale-theme-badge.svg)](https://melpa.org/#/grayscale-theme)
+[![MELPA](https://melpa.org/packages/nazgul-theme-badge.svg)](https://melpa.org/#/nazgul-theme)
 
-This is a simple, mostly grayscale theme, created as a mashup of some ideas of
-the Duotone Atom themes, the base16 emacs themes, and zenburn.
-
-It is currently meant as an experiment and may not be supported in the future,
-so use at your own risk.
+This is a port of [vim-nazgul](https://github.com/wbthomason/vim-nazgul) to Emacs. I based it on
+[emacs-grayscale-theme](https://github.com/belak/emacs-grayscale-theme) for face settings and
+tweaked the colors/some faces to match.
 
 ## Colors
 
-There are a few sets of colors you need to be aware of. The first is the
-background sets. They are arranged below darkest to lightest.
+### Background
 
-TODO: Guidelines for using the `bg` colors.
-
-* ![#2e2e2e](https://placehold.it/15/2e2e2e/000000?text=+) `#2e2e2e bg`
-* ![#383838](https://placehold.it/15/383838/000000?text=+) `#383838 bg+1`
+* ![#282828](https://placehold.it/15/282828/000000?text=+) `#282828 bg`
+* ![#333333](https://placehold.it/15/333333/000000?text=+) `#333333 bg+1`
 * ![#424242](https://placehold.it/15/424242/000000?text=+) `#424242 bg+2`
 * ![#474747](https://placehold.it/15/474747/000000?text=+) `#474747 bg3`
 
-The foreground colors are also arranged from darkest to lighest. They should be
-used for most text. `fg` is meant to be used for general text, while `fg-1`
-should be used to deemphasize text (like comments and strings) and `fg+1` should
-be used to emphasize text (like variable names).
+### Foreground
 
-* ![#868686](https://placehold.it/15/868686/000000?text=+) `#868686 fg-1`
+* ![#8c8c8c](https://placehold.it/15/8c8c8c/000000?text=+) `#8c8c8c fg-1`
 * ![#b6b6b6](https://placehold.it/15/b6b6b6/000000?text=+) `#b6b6b6 fg`
 * ![#e6e6e6](https://placehold.it/15/e6e6e6/000000?text=+) `#e6e6e6 fg+1`
 
-The next set of colors are used only as accent colors and should be used
-sparingly.
-
-TODO: Find a better base `blue` and maybe switch the current blue to
-one of the cyan accents.
+### Accents
 
 * ![#8c5353](https://placehold.it/15/8c5353/000000?text=+) `#8c5353 red-1`
 * ![#bc8383](https://placehold.it/15/bc8383/000000?text=+) `#bc8383 red`
@@ -49,13 +37,3 @@ one of the cyan accents.
 * ![#93e0e3](https://placehold.it/15/93e0e3/000000?text=+) `#93e0e3 cyan+1`
 * ![#dc8cc3](https://placehold.it/15/dc8cc3/000000?text=+) `#dc8cc3 magenta`
 * ![#ec93d3](https://placehold.it/15/ec93d3/000000?text=+) `#ec93d3 magenta+1`
-
-## Screenshots
-
-General usage. This one doesn't have any of the accent colors in use.
-
-![Screenshot 1](screenshot1.png)
-
-The most common accent colors, green and red, being shown in a diff.
-
-![Screenshot 2](screenshot2.png)
