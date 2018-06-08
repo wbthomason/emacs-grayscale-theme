@@ -128,7 +128,7 @@
 ;;;; font-lock
    (font-lock-builtin-face                       :foreground fg+1)
    (font-lock-comment-delimiter-face             :foreground fg-1)
-   (font-lock-comment-face                       :foreground fg+1 :slant italic)
+   (font-lock-comment-face                       :foreground fg-1 :slant italic)
    (font-lock-constant-face                      :foreground fg-1)
    (font-lock-doc-face                           :foreground fg-1)
    (font-lock-doc-string-face                    :foreground fg-1)
