@@ -69,28 +69,38 @@
                  faces)))
 
 (defvar nazgul-theme-colors
-  ;; The bg and fg colors were originally built as a mix between the
-  ;; base16-grayscale and the duotone atom theme colors but have
-  ;; been tweaked a bit since then. I've used the duotone idea of
-  ;; one main foreground color with muted and brightened
-  ;; variants. The highlight colors have been adapted from zenburn.
-  '(:bg        "#282828"
-    :bg+1      "#333333"
-    :bg+2      "#424242"
-    :bg+3      "#474747"
-    :fg-1      "#8c8c8c"
-    :fg        "#b6b6b6"
-    :fg+1      "#e6e6e6"
-    :red-1     "#8c5353"
-    :red       "#bc8383"
-    :red+1     "#dca3a3"
-    :orange    "#dfaf8f"
-    :yellow    "#d0bf8f"
-    :yellow+1  "#f0dfaf"
+  '(
+    :blackest  "#141414"
+    :black     "#282828"
+    :gray01    "#333333"
+    :gray02    "#515151"
+    :gray03    "#5b5b5b"
+    :gray04    "#666666"
+    :gray05    "#727272"
+    :gray06    "#828282"
+    :gray07    "#8c8c8c"
+    :gray08    "#969696"
+    :gray09    "#a0a0a0"
+    :gray10    "#aaaaaa"
+    :gray11    "#b5b5b5"
+    :gray12    "#bfbfbf"
+    :gray13    "#c9c9c9"
+    :gray14    "#d3d3d3"
+    :gray15    "#efefef"
+    :white     "#f9f9f9"
+
+    :purple    "#5f5fd7"
+    :brown     "#875f00"
+    :red-1     "#9c5353"
+    :red       "#bc5353"
+    :red+1     "#fc5353"
+    :orange    "#ffbf8f"
+    :yellow    "#fddf8d"
+    :yellow+1  "#ffff8d"
     :green     "#7f9f7f"
     :green+1   "#8fb28f"
-    :blue      "#6ca0a3"
-    :blue+1    "#94bff3"
+    :blue      "#005fa7"
+    :blue+1    "#00afff"
     :cyan      "#8cd0d3"
     :cyan+1    "#93e0e3"
     :magenta   "#dc8cc3"
@@ -105,60 +115,60 @@
 ;;; Built-in
 
 ;;;; basic colors
-   (border                                       :background bg+2)
-   (cursor                                       :background fg-1)
-   (default                                      :foreground fg :background bg)
-   (fringe                                       :background bg+2)
-   (gui-element                                  :background bg+1)
+   (default                                      :foreground gray13 :background black)
+   (border                                       :background gray01)
+   (cursor                                       :background gray02)
+   (fringe                                       :background black)
+   (gui-element                                  :background gray01)
    (header-line                                  :background nil :inherit mode-line)
-   (highlight                                    :background bg+1)
+   (highlight                                    :background gray01)
    (link                                         :foreground blue :underline t)
    (link-visited                                 :foreground magenta :underline t)
-   (minibuffer-prompt                            :foreground blue)
-   (region                                       :background bg+2)
-   (secondary-selection                          :background bg+2)
+   (minibuffer-prompt                            :background black :foreground green)
+   (region                                       :background gray05)
+   (secondary-selection                          :background gray05)
    (trailing-whitespace                          :foreground yellow :background blue+1)
    (widget-button                                :underline t)
-   (widget-field                                 :background fg-1 :box (:line-width 1 :color fg+1))
+   (widget-field                                 :background gray12 :box (:line-width 1 :color white))
 
    (error                                        :foreground red    :weight bold)
    (warning                                      :foreground orange :weight bold)
    (success                                      :foreground green  :weight bold)
 
 ;;;; font-lock
-   (font-lock-builtin-face                       :foreground fg+1)
-   (font-lock-comment-delimiter-face             :foreground fg-1)
-   (font-lock-comment-face                       :foreground fg-1 :slant italic)
-   (font-lock-constant-face                      :foreground fg-1)
-   (font-lock-doc-face                           :foreground fg-1)
-   (font-lock-doc-string-face                    :foreground fg-1)
-   (font-lock-function-name-face                 :foreground fg+1)
-   (font-lock-keyword-face                       :foreground fg+1)
-   (font-lock-negation-char-face                 :foreground fg-1)
-   (font-lock-preprocessor-face                  :foreground fg-1)
-   (font-lock-regexp-grouping-backslash          :foreground fg-1)
-   (font-lock-regexp-grouping-construct          :foreground fg)
-   (font-lock-string-face                        :foreground fg-1)
-   (font-lock-type-face                          :foreground fg)
-   (font-lock-variable-name-face                 :foreground fg+1)
-   (font-lock-warning-face                       :foreground yellow)
+   (font-lock-builtin-face                       :foreground gray15)
+   (font-lock-comment-delimiter-face             :foreground gray10)
+   (font-lock-comment-face                       :foreground gray10 :slant italic)
+   (font-lock-constant-face                      :foreground gray11)
+   (font-lock-doc-face                           :foreground gray12)
+   (font-lock-doc-string-face                    :foreground gray12)
+   (font-lock-function-name-face                 :foreground gray08)
+   (font-lock-keyword-face                       :foreground gray14)
+   (font-lock-negation-char-face                 :foreground gray12)
+   (font-lock-preprocessor-face                  :foreground gray07)
+   (font-lock-regexp-grouping-backslash          :foreground gray12)
+   (font-lock-regexp-grouping-construct          :foreground gray13)
+   (font-lock-string-face                        :foreground gray10)
+   (font-lock-type-face                          :foreground gray05)
+   (font-lock-variable-name-face                 :foreground gray08)
+   (font-lock-warning-face                       :foreground brown)
 
 ;;;; isearch
-   (match                                        :foreground fg+1 :inverse-video t)
-   (isearch                                      :foreground fg+1 :inverse-video t :weight bold)
-   (lazy-highlight                               :foreground fg-1 :inverse-video t)
-   (isearch-fail                                 :foreground red-1 :background fg :inverse-video t)
+   (match                                        :foreground gray01 :background gray11 :inverse-video t)
+   (isearch                                      :foreground black :background gray07 :inverse-video t :weight bold)
+   (lazy-highlight                               :foreground gray12 :inverse-video t)
+   (isearch-fail                                 :foreground red-1 :background gray13 :inverse-video t)
 
 ;;;; line-numbers
-   (line-number                                  :foreground fg-1 :background bg+1)
+   (line-number                                  :foreground gray04 :background gray01)
    (line-number-current-line                     :inverse-video t :inherit line-number)
 
 ;;;; mode-line
-   (mode-line                                    :foreground fg-1 :background bg+2 :box (:line-width -1 :style released-button))
-   (mode-line-buffer-id                          :foreground fg+1 :background nil)
-   (mode-line-emphasis                           :foreground fg+1 :slant italic)
+   (mode-line                                    :foreground gray11 :background gray03 :box (:line-width -1 :style released-button))
+   (mode-line-buffer-id                          :foreground white :background nil)
+   (mode-line-emphasis                           :foreground white :slant italic)
    (mode-line-highlight                          :foreground magenta :box nil :weight bold)
-   (mode-line-inactive                           :foreground fg-1 :background bg+1 :box (:line-width -1 :style released-button))
+   (mode-line-inactive                           :foreground gray12 :background gray01 :box (:line-width -1 :style released-button))
 
 ;;; Third-party
 
@@ -166,12 +176,12 @@
    (anzu-mode-line                               :foreground yellow)
 
 ;;;; company-mode
-   (company-tooltip                              :background bg+2 :inherit default)
-   (company-scrollbar-bg                         :background fg+1)
-   (company-scrollbar-fg                         :background fg-1)
+   (company-tooltip                              :background gray02 :inherit default)
+   (company-scrollbar-bg                         :background white)
+   (company-scrollbar-fg                         :background gray12)
    (company-tooltip-annotation                   :foreground red)
    (company-tooltip-common                       :inherit font-lock-constant-face)
-   (company-tooltip-selection                    :background bg+3 :inherit font-lock-function-name-face)
+   (company-tooltip-selection                    :background gray03 :inherit font-lock-function-name-face)
    (company-preview-common                       :inherit secondary-selection)
 
 ;;;; diff-hl-mode
@@ -183,9 +193,9 @@
    (diff-added                                   :foreground green)
    (diff-changed                                 :foreground magenta)
    (diff-removed                                 :foreground red)
-   (diff-header                                  :background bg)
-   (diff-file-header                             :background bg+1)
-   (diff-hunk-header                             :foreground magenta :background bg)
+   (diff-header                                  :background black)
+   (diff-file-header                             :background gray01)
+   (diff-hunk-header                             :foreground magenta :background black)
 
 ;;;; flycheck-mode
    (flycheck-error                               :underline (:style wave :color red))
@@ -199,59 +209,59 @@
 ;;;; helm
    ;; TODO: Clean up and finalize these colors
    (helm-M-x-key                                 :foreground cyan)
-   (helm-action                                  :foreground fg)
-   (helm-buffer-directory                        :foreground fg-1 :background nil :weight bold)
+   (helm-action                                  :foreground gray13)
+   (helm-buffer-directory                        :foreground gray12 :background nil :weight bold)
    (helm-buffer-file                             :foreground cyan)
    (helm-buffer-not-saved                        :foreground red)
-   (helm-buffer-process                          :foreground fg-1)
+   (helm-buffer-process                          :foreground gray12)
    (helm-buffer-saved-out                        :foreground red-1)
    (helm-buffer-size                             :foreground orange)
-   (helm-candidate-number                        :foreground bg :background orange)
-   (helm-ff-directory                            :foreground fg-1 :background nil :weight bold)
+   (helm-candidate-number                        :foreground black :background orange)
+   (helm-ff-directory                            :foreground gray12 :background nil :weight bold)
    (helm-ff-executable                           :foreground green)
    (helm-ff-file                                 :foreground cyan)
-   (helm-ff-invalid-symlink                      :foreground bg :background red)
+   (helm-ff-invalid-symlink                      :foreground black :background red)
    (helm-ff-prefix                               :foreground nil :background nil)
-   (helm-ff-symlink                              :foreground bg :background cyan)
+   (helm-ff-symlink                              :foreground black :background cyan)
    (helm-grep-cmd-line                           :foreground green)
    (helm-grep-file                               :foreground cyan)
-   (helm-grep-finish                             :foreground bg :background orange)
-   (helm-grep-lineno                             :foreground fg-1)
+   (helm-grep-finish                             :foreground black :background orange)
+   (helm-grep-lineno                             :foreground gray12)
    (helm-grep-match                              :foreground yellow)
    (helm-grep-running                            :foreground orange)
-   (helm-header                                  :foreground yellow :background bg :underline nil)
+   (helm-header                                  :foreground yellow :background black :underline nil)
    (helm-match                                   :foreground yellow)
    (helm-moccur-buffer                           :foreground cyan)
-   (helm-selection                               :foreground nil :background bg+3 :underline nil)
-   (helm-selection-line                          :foreground nil :background bg+3)
-   (helm-separator                               :foreground bg+1)
-   (helm-source-header                           :foreground fg :background bg+1 :weight bold)
-   (helm-visible-mark                            :foreground bg :background green)
+   (helm-selection                               :foreground nil :background gray03 :underline nil)
+   (helm-selection-line                          :foreground nil :background gray03)
+   (helm-separator                               :foreground gray01)
+   (helm-source-header                           :foreground gray13 :background gray01 :weight bold)
+   (helm-visible-mark                            :foreground black :background green)
 
 ;;;; hl-line-mode
-   (hl-line                                      :background bg+1)
+   (hl-line                                      :background gray01)
 
 ;;;; ido-mode
-   (ido-subdir                                   :foreground fg-1)
+   (ido-subdir                                   :foreground gray12)
    (ido-first-match                              :foreground orange :weight bold)
    (ido-only-match                               :foreground green :weight bold)
-   (ido-indicator                                :foreground red :background bg+1)
-   (ido-virtual                                  :foreground fg-1)
+   (ido-indicator                                :foreground red :background gray01)
+   (ido-virtual                                  :foreground gray12)
 
 ;;;; js2-mode
    (js2-error                                    :underline (:style wave :color red))
    (js2-external-variable                        :foreground orange)
-   (js2-function-call                            :foreground fg+1)
-   (js2-function-param                           :foreground fg-1)
-   (js2-instance-member                          :foreground fg+1)
-   (js2-jsdoc-html-tag-name                      :foreground fg+1)
-   (js2-jsdoc-html-tag-delimiter                 :foreground fg-1)
-   (js2-jsdoc-tag                                :foreground fg+1)
-   (js2-jsdoc-type                               :foreground fg)
-   (js2-jsdoc-value                              :foreground fg)
-   (js2-object-property                          :foreground fg+1)
-   (js2-private-member                           :foreground fg+1)
-   (js2-private-function-call                    :foreground fg+1)
+   (js2-function-call                            :foreground white)
+   (js2-function-param                           :foreground gray12)
+   (js2-instance-member                          :foreground white)
+   (js2-jsdoc-html-tag-name                      :foreground white)
+   (js2-jsdoc-html-tag-delimiter                 :foreground gray12)
+   (js2-jsdoc-tag                                :foreground white)
+   (js2-jsdoc-type                               :foreground gray13)
+   (js2-jsdoc-value                              :foreground gray13)
+   (js2-object-property                          :foreground white)
+   (js2-private-member                           :foreground white)
+   (js2-private-function-call                    :foreground white)
    (js2-warning                                  :underline (:style wave :color orange))
 
 ;;;; magit
@@ -260,16 +270,16 @@
    (magit-diff-added-highlight                   :foreground green+1)
    (magit-diff-base                              :foreground yellow)
    (magit-diff-base-highlight                    :foreground yellow+1)
-   (magit-diff-conflict-heading                  :background bg+2)
-   (magit-diff-context                           :foreground fg :background bg)
-   (magit-diff-context-highlight                 :background bg+1)
-   (magit-diff-file-heading                      :foreground fg :background bg)
-   (magit-diff-file-heading-highlight            :foreground fg :background bg+1)
-   (magit-diff-file-heading-selection            :foreground red :background bg)
-   (magit-diff-hunk-heading                      :background bg+2)
-   (magit-diff-hunk-heading-highlight            :background bg+3)
-   (magit-diff-hunk-heading-selection            :foreground red :background bg+3)
-   (magit-diff-hunk-region                       :foreground fg :background bg)
+   (magit-diff-conflict-heading                  :background gray02)
+   (magit-diff-context                           :foreground gray13 :background black)
+   (magit-diff-context-highlight                 :background gray01)
+   (magit-diff-file-heading                      :foreground gray13 :background black)
+   (magit-diff-file-heading-highlight            :foreground gray13 :background gray01)
+   (magit-diff-file-heading-selection            :foreground red :background black)
+   (magit-diff-hunk-heading                      :background gray02)
+   (magit-diff-hunk-heading-highlight            :background gray03)
+   (magit-diff-hunk-heading-selection            :foreground red :background gray03)
+   (magit-diff-hunk-region                       :foreground gray13 :background black)
    (magit-diff-lines-boundary                    :foreground orange)
    (magit-diff-lines-heading                     :foreground orange)
    (magit-diff-our                               :foreground red)
@@ -287,20 +297,20 @@
    (org-agenda-structure                         :foreground magenta)
    (org-agenda-date                              :foreground blue :underline nil)
    (org-agenda-done                              :foreground green)
-   (org-agenda-dimmed-todo-face                  :foreground fg-1)
-   (org-block                                    :foreground fg)
-   (org-code                                     :foreground fg)
-   (org-column                                   :background bg+1)
+   (org-agenda-dimmed-todo-face                  :foreground gray12)
+   (org-block                                    :foreground gray13)
+   (org-code                                     :foreground gray13)
+   (org-column                                   :background gray01)
    (org-column-title                             :weight bold :underline t :inherit org-column)
    (org-date                                     :foreground magenta :underline t)
    (org-document-info                            :foreground blue+1)
    (org-document-info-keyword                    :foreground green)
    (org-document-title                           :foreground orange :weight bold :height 1.44)
    (org-done                                     :foreground green)
-   (org-ellipsis                                 :foreground fg-1)
+   (org-ellipsis                                 :foreground gray12)
    (org-footnote                                 :foreground blue+1)
    (org-formula                                  :foreground red)
-   (org-hide                                     :foreground fg-1)
+   (org-hide                                     :foreground gray12)
    (org-link                                     :foreground blue)
    (org-scheduled                                :foreground green)
    (org-scheduled-previously                     :foreground orange)
@@ -313,13 +323,13 @@
 
 ;;;; show-paren-mode
    (show-paren-match                             :inverse-video t)
-   (show-paren-mismatch                          :background red :inverse-video t)
+   (show-paren-mismatch                          :background red :inverse-video t)))
 
-   ))
+   
 
 ;; Anything leftover that doesn't fall neatly into a face goes here.
-(let ((bg      (plist-get nazgul-theme-colors :bg))
-      (fg      (plist-get nazgul-theme-colors :fg))
+(let ((black      (plist-get nazgul-theme-colors :black))
+      (gray13      (plist-get nazgul-theme-colors :fg))
       (red     (plist-get nazgul-theme-colors :red))
       (green   (plist-get nazgul-theme-colors :green))
       (yellow  (plist-get nazgul-theme-colors :yellow))
@@ -330,10 +340,10 @@
    'nazgul
    `(ansi-color-names-vector
      ;; black, base08, base0B, base0A, base0D, magenta, cyan, white
-     [,bg ,red ,green ,yellow ,blue ,magenta ,cyan ,fg])
+     [,black ,red ,green ,yellow ,blue ,magenta ,cyan ,gray13])
    `(ansi-term-color-vector
      ;; black, base08, base0B, base0A, base0D, magenta, cyan, white
-     [unspecified ,bg ,red ,green ,yellow ,blue ,magenta ,cyan ,fg])))
+     [unspecified ,black ,red ,green ,yellow ,blue ,magenta ,cyan ,gray13])))
 
 ;;;###autoload
 (and load-file-name
