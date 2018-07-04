@@ -149,8 +149,8 @@
    (font-lock-regexp-grouping-backslash          :foreground gray12)
    (font-lock-regexp-grouping-construct          :foreground gray13)
    (font-lock-string-face                        :foreground gray10)
-   (font-lock-type-face                          :foreground gray05)
-   (font-lock-variable-name-face                 :foreground gray08)
+   (font-lock-type-face                          :foreground gray09)
+   (font-lock-variable-name-face                 :foreground gray14)
    (font-lock-warning-face                       :foreground brown)
 
 ;;;; isearch
