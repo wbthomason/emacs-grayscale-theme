@@ -143,7 +143,7 @@
    (font-lock-doc-face                           :foreground gray12)
    (font-lock-doc-string-face                    :foreground gray12)
    (font-lock-function-name-face                 :foreground gray08)
-   (font-lock-keyword-face                       :foreground gray14)
+   (font-lock-keyword-face                       :foreground white)
    (font-lock-negation-char-face                 :foreground gray12)
    (font-lock-preprocessor-face                  :foreground gray07)
    (font-lock-regexp-grouping-backslash          :foreground gray12)
